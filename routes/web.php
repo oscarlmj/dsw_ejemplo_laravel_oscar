@@ -19,3 +19,4 @@ Route::get("/about", "App\Http\Controllers\HomeController@about")->name("home.ab
 
 Route::get("/products","App\Http\Controllers\ProductsController@index")->name("home.products");
 
+Route::get('/productos/{id}', [App\Http\Controllers\ProductsController::class, 'show'])->name('products.show');
