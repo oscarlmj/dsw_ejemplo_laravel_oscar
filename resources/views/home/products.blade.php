@@ -12,23 +12,13 @@
 @section('content') 
 
     <div class="row">
+        
+        @foreach($productos as $producto)
         <div class="col-md-3 col-lg-3 mb-2">
-            <img src="{{ asset("/img/game.png") }}" class="img-fluid rounded">
-            <a href="" class="btn bg-primary" id="1">TV</a>
+            <img src="{{ asset($producto['imagen']) }}" class="img-fluid rounded">
+            <a href="{{ route('products.show', ['id' => $producto['id']]) }}" class="btn bg-primary" id="{{ $producto['id'] }}">{{ $producto['nombre'] }}</a>
         </div>
-        <div class="col-md-3 col-lg-3 mb-2">
-            <img src="{{ asset("/img/safe.png") }}" class="img-fluid rounded">
-            <a href="" class="btn bg-primary" id="2">iPhone</a>
-        </div>
-        <div class="col-md-3 col-lg-3 mb-2">
-            <img src="{{ asset("/img/submarine.png") }}" class="img-fluid rounded">
-            <a href="" class="btn bg-primary" id="3">Chromecast</a>
-        </div>
-        <div class="col-md-3 col-lg-3 mb-2">
-            <img src="{{ asset("/img/game.png") }}" class="img-fluid rounded">
-            <a href="/products/" class="btn bg-primary" id="4">Glasses</a>
-        </div>
+        @endforeach
     </div>
 
 @endsection
-
