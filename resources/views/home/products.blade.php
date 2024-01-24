@@ -11,7 +11,8 @@
 <!-- Inyectamos el texto con el contenido de la página en el yield "content" -->
 @section('content') 
 
-    <div class="row"> 
+    <div class="row">
+        
         @foreach($productos as $producto)
         <div class="col-md-3 col-lg-3 mb-2">
             <img src="{{ asset($producto['imagen']) }}" class="img-fluid rounded">
@@ -19,5 +20,4 @@
         </div>
         @endforeach
     </div>
-
 @endsection

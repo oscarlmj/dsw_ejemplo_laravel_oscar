@@ -9,13 +9,15 @@
 @section("subtitle",$viewData["subtitle"])
 
 <!-- Inyectamos el texto con el contenido de la página en el yield "content" -->
-@section('content')
-    <div class="producto">
-        <img src="{{ $viewData['producto']['imagen'] }}" class="img-fluid rounded" width="400px">
-        <div>
-            <h4>{{ $viewData['producto']['nombre'] }}</h4>
-            <p><b>{{ $viewData['producto']['descripcion'] }}</b></p>
-            <h5>{{ $viewData['producto']['precio'] }}</h5>
-        </div>
-    </div>
+@section('content') 
+<div class="producto">
+<img src="{{ asset($producto['imagen']) }}" class="img-fluid rounded" width=600px>
+<div>
+<h4>{{ $producto['nombre'] }}</h4>
+    <p><b>{{$producto['descripcion']}}</b></p>
+    <h5>{{$producto['precio']}}</h5>
+</div>
+
+
+</div>
 @endsection
