@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-
     public function index() {
         $viewData = [];
         $viewData["title"] = "Página principal - Tienda online";
@@ -23,16 +22,5 @@ class HomeController extends Controller
         $viewData["author"] = "Desarrollado por: DSW";
 
         return view("home.about")->with("viewData", $viewData);
-    }
-
-    public function products(){
-        $viewData = [];
-
-        $viewData["title"] = "Lista de productos";
-        $viewData["subtitle"] =  "Listado de productos";
-        $viewData["description"] =  "Este es el listado de productos";
-        $viewData["author"] = "Desarrollado por: DSW";
-
-        return view("home.products")->with("viewData", $viewData);
     }
 }
