@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 
 use Illuminate\Http\Request;
 
@@ -36,3 +37,31 @@ class HomeController extends Controller
         return view("home.products")->with("viewData", $viewData);
     }
 }
+=======
+use App\Models\Producto;
+use Illuminate\HTTP\Request;
+
+
+class ProductController extends Controller
+{
+
+    public function index()
+    {
+        $viewData = [];
+        $viewData["title"] = "Productos";
+        $viewData["subtitle"] =  "Listado de productos";
+        $viewData["products"] = Producto::all();
+
+        return view('product.index')->with("viewData", $viewData);
+    }
+
+    public function show($id)
+    {
+        $viewData = [];
+        $viewData["title"] = "Productos";
+        $viewData["subtitle"] =  "Detalle de producto";
+        $viewData["product"] = Producto::findOrFail($id);
+        return view('product.show')->with("viewData", $viewData);
+    }
+}
+>>>>>>> 8b0a46797a34f8ba03618962800db0daaaa6c5b7

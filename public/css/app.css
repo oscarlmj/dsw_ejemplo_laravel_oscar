@@ -10,7 +10,6 @@
 
   .bg-primary {
     background-color: #1abc9c !important;
-    color: white;
   }
 
   nav{
@@ -20,10 +19,4 @@
   .img-card{
     height: 18vw;
     object-fit: cover;
-  }
-
-  .producto{
-    display: flex;
-    text-align: justify;
-    gap: 10px;
   }
