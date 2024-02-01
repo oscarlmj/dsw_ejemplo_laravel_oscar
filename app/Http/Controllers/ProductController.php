@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\Product;
 use Illuminate\HTTP\Request;
 
 
@@ -14,7 +14,7 @@ class ProductController extends Controller
         $viewData = [];
         $viewData["title"] = "Productos";
         $viewData["subtitle"] =  "Listado de productos";
-        $viewData["products"] = Producto::all();
+        $viewData["products"] = Product::all();
 
         return view('product.index')->with("viewData", $viewData);
     }
@@ -24,7 +24,7 @@ class ProductController extends Controller
         $viewData = [];
         $viewData["title"] = "Productos";
         $viewData["subtitle"] =  "Detalle de producto";
-        $viewData["product"] = Producto::findOrFail($id);
+        $viewData["product"] = Product::findOrFail($id);
         return view('product.show')->with("viewData", $viewData);
     }
 }
