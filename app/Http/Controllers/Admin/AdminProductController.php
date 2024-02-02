@@ -46,9 +46,12 @@ class AdminProductController extends Controller
         $newProduct->price = $request->input('price');
 
         $newProduct->save();
+
+        if($request->hasFile('image'))
         $viewData["products"] = Product::all();
-
-
-        return view('admin.product.index')->with("viewData", $viewData);
+       
+        
+        //return view('admin.product.index')->with("viewData", $viewData);
+        return redirect()->route('admin.product.index')->with("viewData", $viewData);
     }
 }

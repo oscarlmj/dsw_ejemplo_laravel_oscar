@@ -7,7 +7,7 @@
   </div>
   <div class="card-body">
 
-    <form method="POST" action="{{ route('admin.product.add') }}">
+    <form method="POST" action="{{ route('admin.product.add') }}" enctype=’multipart/form-data>
       @csrf
       <div class="row">
         <div class="col">
@@ -30,6 +30,10 @@
       <div class="mb-3">
         <label class="form-label">Descripción</label>
         <textarea class="form-control" name="description" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="imagen">Imagen</label>
+        <input type="file" name="image">
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
