@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class AdminProductController extends Controller
@@ -47,9 +48,17 @@ class AdminProductController extends Controller
 
         $newProduct->save();
 
+        $newProductId = $newProduct->id;
+
         if($request->hasFile('image'))
-        $viewData["products"] = Product::all();
-       
+        {
+            $file = $request->file('image');
+            $ext = $request->file('image')->extension();
+            $fileName = $newProductId.".".$ext;
+            $newProduct->image = $fileName;
+            Storage::disk('public')->put($fileName, file_get_contents($file->path()));
+            $newProduct->save();
+        }
         
         //return view('admin.product.index')->with("viewData", $viewData);
         return redirect()->route('admin.product.index')->with("viewData", $viewData);
