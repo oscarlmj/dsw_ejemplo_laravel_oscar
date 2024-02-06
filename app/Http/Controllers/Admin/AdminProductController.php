@@ -43,7 +43,7 @@ class AdminProductController extends Controller
         $newProduct = new Product();
         $newProduct->name = $request->input('name');
         $newProduct->description = $request->input('description');
-        $newProduct->image = "NULL";
+        $newProduct->image = "../../../../public/storage/defecto.webp";
         $newProduct->price = $request->input('price');
 
         $newProduct->save();
@@ -60,6 +60,7 @@ class AdminProductController extends Controller
             $newProduct->save();
         }
         
+
         //return view('admin.product.index')->with("viewData", $viewData);
         return redirect()->route('admin.product.index')->with("viewData", $viewData);
     }
