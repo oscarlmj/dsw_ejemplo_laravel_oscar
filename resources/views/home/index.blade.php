@@ -6,10 +6,10 @@
 
 <!-- Inyectamos el texto con el contenido de la página en el yield "content" -->
 @section('content') 
-    <div class="row">
+<div class="row">
         @foreach ($viewData["products"] as $product)
             <div class="col-md-6 col-lg-4 mb-2">
-                <img src="{{ asset('/storage/'.$viewData["product"]["image"]) }}" class="img-fluid rounded-start">
+                <img src="{{ asset('/storage/'.$product["image"]) }}" class="img-fluid rounded-start">
             </div>
         @endforeach
     </div>
